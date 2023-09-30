@@ -1042,6 +1042,7 @@ void displayAnimation() {
         zone2newMessageAvailable = false;
         P.setTextBuffer(2, zone2Message);
         P.displayReset(2);
+    }
   }
 }
 
