@@ -19,7 +19,7 @@ const char indexPage[] PROGMEM = R"=====(<!doctype html>
     <div class="px-3 py-2 bg-dark text-white">
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+          <a href="https://github.com/widapro/wledPixel" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
             <h1 class="mb-3 fw-bold font-monospace">wledPixel</h1>
           </a>
 
