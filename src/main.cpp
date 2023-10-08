@@ -37,16 +37,16 @@ unsigned long previousMillis = 0;
 
 
 //// DS18B20 ////
-const int oneWireBus = D4;  // WeMos D1 mini GPIO02
-OneWire oneWire(oneWireBus); // WeMos D1 mini GPIO02
+const int oneWireBus           = D4;  // WeMos D1 mini GPIO02
+OneWire oneWire(oneWireBus);          // WeMos D1 mini GPIO02
 DallasTemperature sensors(&oneWire);
-bool ds18b20Enable = false;
-uint16_t ds18b20UpdateInterval = 30; // in seconds
+bool ds18b20Enable             = false;
+uint16_t ds18b20UpdateInterval = 30;  // in seconds
 unsigned long previousDsMillis = -100000;
-String ds18b20UnitsFormat = "Celsius";
-String dsTemp = "-127";
+String ds18b20UnitsFormat      = "Celsius";
+String dsTemp                  = "-127";
 char dsTempBuff[5];
-bool dsTempToDisplay = false;
+bool dsTempToDisplay           = false;
 
 
 //// MQTT settings ////
@@ -58,7 +58,7 @@ String mqttPassword       = "";
 long lastReconnectAttempt = 0;
 PubSubClient mqttClient(mqttEspClient);
 
-String shortMACaddr = WiFi.macAddress().substring(12, 14) + WiFi.macAddress().substring(15); // last five chars of the MAC, ie: C0A4;
+String shortMACaddr = WiFi.macAddress().substring(12, 14) + WiFi.macAddress().substring(15);  // Last five chars of the MAC, ie: C0A4;
 //String deviceName = shortMACaddr;
 String MQTTGlobalPrefix = "wledPixel-" + shortMACaddr;
 
@@ -79,12 +79,12 @@ bool mqttPublished    = false;
 
 
 // Display config
-#define HARDWARE_TYPE MD_MAX72XX::FC16_HW // type of device hardware https://majicdesigns.github.io/MD_MAX72XX/page_hardware.html
+#define HARDWARE_TYPE MD_MAX72XX::FC16_HW  // Type of device hardware https://majicdesigns.github.io/MD_MAX72XX/page_hardware.html
 //// Display pinout
-#define DATA_PIN  D7                      // WeMos D1 mini GPIO13
-#define CS_PIN    D6                      // WeMos D1 mini GPIO12
-#define CLK_PIN   D5                      // WeMos D1 mini GPIO14
-uint8_t MAX_DEVICES = 16;                 // number of device segments
+#define DATA_PIN  D7                       // WeMos D1 mini GPIO13
+#define CS_PIN    D6                       // WeMos D1 mini GPIO12
+#define CLK_PIN   D5                       // WeMos D1 mini GPIO14
+uint8_t MAX_DEVICES = 16;                  // Number of matrix segments
 MD_Parola P = MD_Parola(HARDWARE_TYPE, DATA_PIN, CLK_PIN, CS_PIN, MAX_DEVICES);
 
 typedef struct {
@@ -120,16 +120,16 @@ String ntpServer = "pool.ntp.org";
 int8_t ntpTimeZone = 3;
 WiFiUDP ntpUDP;
 unsigned long previousNTPsyncMillis = millis();
-uint16_t ntpUpdateInterval = 6; // in hours
+uint16_t ntpUpdateInterval = 6;  // In hours
 NTPClient timeClient(ntpUDP, ntpServer.c_str(), ntpTimeZone * 3600, ntpUpdateInterval * 3600);
 
 AsyncWebServer server(80);
 DNSServer dns;
 AsyncWiFiManager wifiManager(&server,&dns);
 
-//flag for saving wifi data
+// Flag for saving wifi data
 bool shouldSaveConfig   = false;
-//callback notifying us of the need to save config
+// Callback notifying us of the need to save config
 void saveConfigCallback () {
   shouldSaveConfig      = true;
 }
@@ -148,7 +148,6 @@ String          haAddr, haApiHttpType, haApiToken;
 uint16_t        haUpdateInterval  = 60;
 uint16_t        haApiPort         = 8123;
 static uint32_t haLastTime        = 0;
-
 
 // Convert scrollAlig in String to textPosition_t type
 textPosition_t stringToTextPositionT(String val) {
@@ -313,7 +312,7 @@ void MQTTPublishHADiscovry(String zone, String device_type) {
     char buffer[1072];
     boolean result;
 
-    // device block
+    // Device block
     JsonObject device                 = root.createNestedObject("dev");
     JsonArray arrDevice               = device.createNestedArray("ids"); 
     arrDevice.add(MQTTGlobalPrefix); 
@@ -322,13 +321,13 @@ void MQTTPublishHADiscovry(String zone, String device_type) {
     device["name"]                    = "wledPixel" + shortMACaddr;
     device["sw"]                      = firmwareVer;
 
-    // availability block
+    // Availability block
     JsonArray arrAvailability         = root.createNestedArray("availability");
     JsonObject availability           = arrAvailability.createNestedObject();
     availability["topic"]             = MQTTGlobalPrefix + "/state";
     availability["value_template"]    = "{{ value_json.status }}";
 
-    // light block
+    // Light block
     if (device_type == "light") {
       sprintf( topic_config,  "homeassistant/light/%s/config", shortMACaddr.c_str() );
       root["name"]         = MQTTGlobalPrefix;
@@ -504,10 +503,9 @@ void MQTTPublishHADiscovry(String zone, String device_type) {
     //result = mqttClient.beginPublish(topic_config, measureJson(root), true);
     //if( result == false ) Serial.println(F( "MQTT HA config error begin!" ));
     //serializeJson(root, mqttClient);
-    
 
     size_t n = serializeJson(root, buffer);
-    
+
     Serial.print(F("\nMQTT publish HA device state: "));
     mqttPublished = mqttClient.publish(topic_config, buffer, n);
     if (mqttPublished) Serial.println(F("OK"));
@@ -745,7 +743,7 @@ void zoneNewMessage(int zone, String newMessage, String postfix) {
 //  }
 }
 
-// check a string to see if it is numeric
+// Check a string to see if it is numeric
 bool isNumeric(String str){
   for(byte i=0;i<str.length();i++) {
     if(isDigit(str.charAt(i))) return true;
@@ -905,8 +903,8 @@ void wifiApWelcomeMessage(AsyncWiFiManager *wifiManager) {
 String getCurTime(String curZoneFont, String displayFormat) {
       if (currentMillis - previousNTPsyncMillis >= (unsigned)ntpUpdateInterval * 3600 * 1000) ntpUpdateTime();
 
-      String t = (String)timeClient.getFormattedTime(); // returns HH:MM:SS
-      
+      String t = (String)timeClient.getFormattedTime();  // Returns HH:MM:SS
+
       if (displayFormat == "HHMM") {
         t.remove(5,4);
         return t;
@@ -922,11 +920,11 @@ String getCurTime(String curZoneFont, String displayFormat) {
       }
 
       time_t epochTime = timeClient.getEpochTime(); // returns the Unix epoch
-      //Get a time structure
+      // Get a time structure
       struct tm *ptm = gmtime ((time_t *)&epochTime); 
       int monthDay = ptm->tm_mday;
       int currentMonth = ptm->tm_mon+1;
-      
+
       String currentMonthStr = "";
       if(currentMonth < 10) currentMonthStr += '0';
       currentMonthStr += currentMonth;
@@ -934,7 +932,7 @@ String getCurTime(String curZoneFont, String displayFormat) {
       String monthDayStr = "";
       if(monthDay < 10) monthDayStr += '0';
       monthDayStr += monthDay;
-      
+
       //String weekDays[7] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
       String weekDays[7] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
       String weekDaysCyrillic[7] = {"½", "§", "©", "®", "µ", "¶", "¼"};
@@ -962,7 +960,6 @@ String flashClockDots(String t) {
   else t.replace("¦", ":");
   return t;
 }
-
 
 uint8_t utf8Ascii(uint8_t ascii)
 // Convert a single Character from UTF8 to Extended ASCII according to ISO 8859-1, also called ISO Latin-1.
@@ -1058,7 +1055,7 @@ String haApiGet(String sensorId, String sensorPostfix) {
 void setup() {
   Serial.begin(115200);
   Serial.print(F("Start serial...."));
-  
+
   //WiFi.mode(WIFI_STA);
   //WiFi.persistent(true);
   wifiManager.setSaveConfigCallback(saveConfigCallback);
@@ -1096,8 +1093,8 @@ void setup() {
     mqttClient.setCallback(MQTTCallback);
     mqttClient.setBufferSize(4096);
   }  
-  
-  // start NTP client
+
+  // Start NTP client
   timeClient.begin();
   timeClient.setTimeOffset(ntpTimeZone * 3600);
   timeClient.setUpdateInterval(ntpUpdateInterval * 3600);
@@ -1123,7 +1120,7 @@ void setup() {
     if (ds18b20Enable) request->send(200, "text/plain", String(dsTemp).c_str());
     else request->send(404);
   });
-  
+
   server.on("/api/message", HTTP_ANY, [](AsyncWebServerRequest *request){
     Serial.print(F("API request received "));
       int params = request->params();
@@ -1164,7 +1161,7 @@ void setup() {
                 if (strcmp(p->value().c_str(),"false") == 0)  disableServiceMessages = false;
               }
               if (p->name() == "deviceName")                  shortMACaddr           = p->value().c_str();
-              
+
               finishRequest = true;    
           }
 
@@ -1180,7 +1177,7 @@ void setup() {
               restartESP = true;
               finishRequest = true; 
           }
-          
+
           if (key->value() == "zoneSettings") {
               if (p->name() == "zone") n = p->value().toInt();
               if (p->name() == "workMode") {
@@ -1342,17 +1339,12 @@ void setup() {
         if (key->value() == "wallClockSettings") ntpUpdateTime();
         //readConfig(key->value(), n);
       }
-      
+
   });
 
-  // Start webserver
-  server.begin();
-
-  // Start ElegantOTA
-  AsyncElegantOTA.begin(&server);
-
-  // Start ds18b20
-  sensors.begin();
+  server.begin();                  // Start webserver
+  AsyncElegantOTA.begin(&server);  // Start ElegantOTA
+  sensors.begin();                 // Start ds18b20
 }
 
 void testZones(uint8_t n) {
@@ -1379,14 +1371,14 @@ void testZones(uint8_t n) {
 void loop() {
   currentMillis = millis();
 
-  // handle a restart ESP request
+  // Handle a restart ESP request
   if (restartESP) {
     Serial.print(F("Rebooting ESP..."));
     delay(1000);
     ESP.restart();
   }
 
-  // init display animation
+  // Init display animation
   if (!allTestsFinish) {
     if (nLoop > zoneNumbers && P.getZoneStatus(0)) {
       allTestsFinish      = true;
@@ -1401,12 +1393,12 @@ void loop() {
     }
   }
 
-  // apply saved config for display
+  // Apply saved config for display
   if (initConfig) {
     Serial.print(F("Init configuration"));
     initConfig = false;
     readAllConfig();
-    
+
     if (mqttEnable) mqttClient.disconnect();
     P.setIntensity(intensity);
     for ( uint8_t n = 0; n < zoneNumbers; n++) {
@@ -1434,7 +1426,7 @@ void loop() {
       if (zones[n].workMode == "haClient") haLastTime = -1000000;
     }
   }
-  
+
   if (allTestsFinish) {
     if (mqttEnable && mqttServerAddress.length() > 0){
       if (!mqttClient.connected()) {
@@ -1482,7 +1474,7 @@ void loop() {
     }
     if (owmWeatherEnable && currentMillis - owmLastTime >= (unsigned)owmUpdateInterval * 1000) owmWeatherUpdate(owmCity, owmUnitsFormat, owmApiToken);
 
-    // zones rutines
+    // Zones rutines
     for ( uint8_t n = 0; n < zoneNumbers; n++) {
       // Wall Clock
       if (zones[n].workMode == "wallClock") {
@@ -1555,7 +1547,6 @@ void loop() {
       owmLastTime = currentMillis;
       owmPrinted  = false;
     }
-
   } 
 
   displayAnimation(); 
