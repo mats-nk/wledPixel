@@ -1,7 +1,7 @@
 # wledPixel
 ESP8266 and MAX7219 dot matrix display management
 
-![img](https://raw.githubusercontent.com/widapro/wled-pixel-v2/master/img/main.jpg)
+![img](img/main.jpg)
 ![img](https://raw.githubusercontent.com/widapro/wled-pixel-v2/master/img/wledPixel-white.jpg)
 
 [The latest firmware version can be found in Releases](https://github.com/widapro/wled-pixel-v2/releases)
