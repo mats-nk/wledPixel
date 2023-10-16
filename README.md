@@ -7,18 +7,18 @@ ESP8266 and MAX7219 dot matrix display management
 [The latest firmware version can be found in Releases](https://github.com/widapro/wled-pixel-v2/releases)
 
 ## Supported key features:
-1. **Home Assistant client** [display sensor values]
-2. **OpenWeatherMap client** [display: temperature (C/F), humidity, pressure, wind speed, weather icon]
-3. **MQTT client** [each display zone support own topic]
+1. Home Assistant client, display sensor values
+2. OpenWeatherMap client, display: temperature (C/F), humidity, pressure, wind speed, weather icon
+3. MQTT client, each display zone support own topic
 4. Display controll through MQTT
-5. **Wall NTP clock** [NTP sync clock]
-6. **Manual input**
-7. Full controll through **web UI**
-8. Home Assistant MQTT discovery [When MQTT settings specified, device will be automatically send discovery message to HA]
-9. Control display as light in Home Assistant [MQTT setup required]
+5. Wall NTP clock, NTP sync clock
+6. Manual input
+7. Full controll through web UI
+8. Home Assistant MQTT discovery. When MQTT settings specified, device will be automatically send discovery message to HA
+9. Control display as light in Home Assistant. MQTT setup required
 10. Initial setup through wifi AP and web UI
 11. Support 3 independent display zones
-12. Support up to 12 display segments at the same time [configured in web UI]
+12. Support up to 12 display segments at the same time, configured in web UI
 13. Included 3 different fonts
 14. Plus symbols font
 
