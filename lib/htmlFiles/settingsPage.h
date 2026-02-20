@@ -389,7 +389,7 @@ const char settingsPagePart1[] PROGMEM = R"=====(<!doctype html>
                         <option value="owmHumidity">Humidity</option>
                         <option value="owmPressure">Pressure</option>
                         <option value="owmWindSpeed">Wind speed</option>
-                        <option value="owmWeatherIcon">Wether icon</option>
+                        <option value="owmWeatherIcon">Weather icon</option>
                     </select>
                   </div>
                   <div class="col-5" id="haSensorIdZone0Div" style="display: none;">
@@ -656,7 +656,7 @@ const char settingsPagePart1[] PROGMEM = R"=====(<!doctype html>
                         <option value="owmHumidity">Humidity</option>
                         <option value="owmPressure">Pressure</option>
                         <option value="owmWindSpeed">Wind speed</option>
-                        <option value="owmWeatherIcon">Wether icon</option>
+                        <option value="owmWeatherIcon">Weather icon</option>
                     </select>
                   </div>
                   <div class="col-5" id="haSensorIdZone1Div" style="display: none;">
@@ -905,7 +905,7 @@ const char settingsPagePart1[] PROGMEM = R"=====(<!doctype html>
                         <option value="owmHumidity">Humidity</option>
                         <option value="owmPressure">Pressure</option>
                         <option value="owmWindSpeed">Wind speed</option>
-                        <option value="owmWeatherIcon">Wether icon</option>
+                        <option value="owmWeatherIcon">Weather icon</option>
                     </select>
                   </div>
                   <div class="col-5" id="haSensorIdZone2Div" style="display: none;">
@@ -1165,7 +1165,7 @@ const char settingsPagePart1[] PROGMEM = R"=====(<!doctype html>
                         <option value="owmHumidity">Humidity</option>
                         <option value="owmPressure">Pressure</option>
                         <option value="owmWindSpeed">Wind speed</option>
-                        <option value="owmWeatherIcon">Wether icon</option>
+                        <option value="owmWeatherIcon">Weather icon</option>
                     </select>
                   </div>
                   <div class="col-5" id="haSensorIdZone3Div" style="display: none;">
