@@ -1,3 +1,4 @@
+// Optimized Bitmaps.cpp
 #include "Bitmaps.h"
 
 #if defined(ESP8266)
