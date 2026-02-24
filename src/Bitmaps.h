@@ -5,9 +5,9 @@
 #include <MD_MAX72xx.h>
 
 /*
-  ESP8266 Long-Uptime Optimized Bitmap Header
-  - No RAM-based globals    - Width/Frame metadata as macros (zero RAM footprint)
-  - All data in flash       - Fully drop-in compatible with existing .cpp bitmap definitions
+  - No RAM-based globals
+  - Width/Frame metadata as macros (zero RAM footprint)
+  - All data in flash
 */
 
 #if defined(ESP8266)
