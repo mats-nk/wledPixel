@@ -1,36 +1,62 @@
+# /lib
 
 This directory is intended for project specific (private) libraries.
+
 PlatformIO will compile them to static libraries and link into executable file.
 
-The source code of each library should be placed in a an own separate directory
-("lib/your_library_name/[here are source files]").
+The source code of each library should be placed in a an own separate directory ("lib/your_library_name/[here are source files]").
 
 For example, see a structure of the following two libraries `Foo` and `Bar`:
 
 |--lib
 |  |
-|  |--Bar
-|  |  |--docs
-|  |  |--examples
-|  |  |--src
-|  |     |- Bar.c
-|  |     |- Bar.h
-|  |  |- library.json (optional, custom build options, etc) https://docs.platformio.org/page/librarymanager/config.html
+|  |--countdown
+|  |  |- countdown.cpp
+|  |  |- countdown.h
 |  |
-|  |--Foo
-|  |  |- Foo.c
-|  |  |- Foo.h
+|  |--htmlFiles
+|  |  |- backupPage.h
+|  |  |- indexPage.h
+|  |  |- otaPage.h
+|  |  |- settingsPage.h
+|  |
+|  |--httpsRequestJson
+|  |  |- httpsRequestJson.cpp
+|  |  |- httpsRequestJson.h
+|  |
+|  |--owm
+|  |  |- owm.cpp
+|  |  |- owm.h
+|  |
+|  |--wledFont
+|  |  |- wledFont.h
+|  |  |- wledFont_CompactSymbols.h
+|  |  |- wledFont_Cyrillic.h
+|  |  |- wledFont_Symbol.h
 |  |
 |  |- README --> THIS FILE
 |
 |- platformio.ini
 |--src
-   |- main.c
+   |- Bitmaps.cpp
+   |- Bitmaps.h
+   |- ConfigStore.cpp
+   |- ConfigStore.h
+   |- DisplayUtils.cpp
+   |- DisplayUtils.h
+   |- Globals.cpp
+   |- Globals.h
+   |- MqttHandler.cpp
+   |- MqttHandler.h
+   |- WebRoutes.cpp
+   |- WebRoutes.h
+   |- base64_utils.h
+   |- main.cpp
 
-and a contents of `src/main.c`:
+and a contents of `src/main.cpp`:
 ```
-#include <Foo.h>
-#include <Bar.h>
+#include <>
+#include <>
 
 int main (void)
 {
@@ -39,8 +65,7 @@ int main (void)
 
 ```
 
-PlatformIO Library Dependency Finder will find automatically dependent
-libraries scanning project source files.
+PlatformIO Library Dependency Finder will find automatically dependent libraries scanning project source files.
 
 More information about PlatformIO Library Dependency Finder
 - https://docs.platformio.org/page/librarymanager/ldf.html
