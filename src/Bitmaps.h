@@ -120,3 +120,63 @@ extern const uint8_t wave[] FLASH_BITMAP;
 constexpr uint8_t WAVE_FRAMES = 24;
 constexpr uint8_t WAVE_WIDTH  = 8;
 constexpr size_t  WAVE_SIZE   = 192;
+
+
+// ─── Backward Compatibility ─────────────────────────────
+
+#define F_DINO       DINO_FRAMES
+#define W_DINO       DINO_WIDTH
+
+#define F_ARROW1     ARROW1_FRAMES
+#define W_ARROW1     ARROW1_WIDTH
+
+#define F_ARROW2     ARROW2_FRAMES
+#define W_ARROW2     ARROW2_WIDTH
+
+#define F_CHEVRON    CHEVRON_FRAMES
+#define W_CHEVRON    CHEVRON_WIDTH
+
+#define F_FBALL      FBALL_FRAMES
+#define W_FBALL      FBALL_WIDTH
+
+#define F_GHOST      GHOST_FRAMES
+#define W_GHOST      GHOST_WIDTH
+
+#define F_HEART      HEART_FRAMES
+#define W_HEART      HEART_WIDTH
+
+#define F_INVADER    INVADER_FRAMES
+#define W_INVADER    INVADER_WIDTH
+
+#define F_LINES      LINES_FRAMES
+#define W_LINES      LINES_WIDTH
+
+#define F_MARIO      MARIO_FRAMES
+#define W_MARIO      MARIO_WIDTH
+
+#define F_ROCKET     ROCKET_FRAMES
+#define W_ROCKET     ROCKET_WIDTH
+
+#define F_ROLL1      ROLL1_FRAMES
+#define W_ROLL1      ROLL1_WIDTH
+
+#define F_ROLL2      ROLL2_FRAMES
+#define W_ROLL2      ROLL2_WIDTH
+
+#define F_SAILBOAT   SAILBOAT_FRAMES
+#define W_SAILBOAT   SAILBOAT_WIDTH
+
+#define F_STEAMBOAT  STEAMBOAT_FRAMES
+#define W_STEAMBOAT  STEAMBOAT_WIDTH
+
+#define F_WALKER     WALKER_FRAMES
+#define W_WALKER     WALKER_WIDTH
+
+#define F_PMAN1      PACMAN1_FRAMES
+#define W_PMAN1      PACMAN1_WIDTH
+
+#define F_PMAN2      PACMAN2_FRAMES
+#define W_PMAN2      PACMAN2_WIDTH
+
+#define F_WAVE       WAVE_FRAMES
+#define W_WAVE       WAVE_WIDTH
