@@ -1,119 +1,122 @@
 // Optimized Bitmaps.h
 #pragma once
-
 #include <Arduino.h>
-#include <MD_MAX72xx.h>
 
 #if defined(ESP8266)
-  #define FLASH_BITMAP ICACHE_RODATA_ATTR
+  #define FLASH_BITMAP PROGMEM
 #else
-  #define FLASH_BITMAP
+  #define FLASH_BITMAP PROGMEM
 #endif
 
 // ─── Arrow
-// ─────────────────────────────────────────────────────────────────────
-#define F_ARROW1  1
-#define W_ARROW1  8
-extern const uint8_t arrow1[] PROGMEM FLASH_BITMAP;
+extern const uint8_t arrow1[] FLASH_BITMAP;
+constexpr uint8_t ARROW1_FRAMES = 3;
+constexpr uint8_t ARROW1_WIDTH  = 10;
+constexpr size_t  ARROW1_SIZE   = 30;
 
-#define F_ARROW2  1
-#define W_ARROW2  8
-extern const uint8_t arrow2[] PROGMEM FLASH_BITMAP;
+extern const uint8_t arrow2[] FLASH_BITMAP;
+constexpr uint8_t ARROW2_FRAMES = 3;
+constexpr uint8_t ARROW2_WIDTH  = 9;
+constexpr size_t  ARROW2_SIZE   = 27;
 
 // ─── Chevron
-// ───────────────────────────────────────────────────────────────────
-#define F_CHEVRON 1
-#define W_CHEVRON 8
-extern const uint8_t chevron[] PROGMEM FLASH_BITMAP;
+extern const uint8_t chevron[] FLASH_BITMAP;
+constexpr uint8_t CHEVRON_FRAMES = 1;
+constexpr uint8_t CHEVRON_WIDTH  = 9;
+constexpr size_t  CHEVRON_SIZE   = 9;
 
-// ─── Dino
-// ──────────────────────────────────────────────────────────────────────
-#define F_DINO    1
-#define W_DINO    8
-extern const uint8_t dino[] PROGMEM FLASH_BITMAP;
+// Dino
+extern const uint8_t dino[] FLASH_BITMAP;
+constexpr uint8_t DINO_FRAMES = 1;
+constexpr uint8_t DINO_WIDTH  = 8;
+constexpr size_t  DINO_SIZE   = 8;
 
-// ─── Fireball
-// ──────────────────────────────────────────────────────────────────
-#define F_FBALL   1
-#define W_FBALL   8
-extern const uint8_t fireball[] PROGMEM FLASH_BITMAP;
+// Fireball
+extern const uint8_t fireball[] FLASH_BITMAP;
+constexpr uint8_t FBALL_FRAMES = 2;
+constexpr uint8_t FBALL_WIDTH  = 11;
+constexpr size_t  FBALL_SIZE   = 22;
 
-// ─── Ghost
-// ─────────────────────────────────────────────────────────────────────
-#define F_GHOST   1
-#define W_GHOST   8
-extern const uint8_t ghost[] PROGMEM FLASH_BITMAP;
+// Ghost
+extern const uint8_t ghost[] FLASH_BITMAP;
+constexpr uint8_t GHOST_FRAMES = 1;
+constexpr uint8_t GHOST_WIDTH  = 8;
+constexpr size_t  GHOST_SIZE   = 8;
 
-// ─── Heart
-// ─────────────────────────────────────────────────────────────────────
-#define F_HEART   1
-#define W_HEART   8
-extern const uint8_t heart[] PROGMEM FLASH_BITMAP;
+// Heart
+extern const uint8_t heart[] FLASH_BITMAP;
+constexpr uint8_t HEART_FRAMES = 5;
+constexpr uint8_t HEART_WIDTH  = 9;
+constexpr size_t  HEART_SIZE   = 45;
 
-// ─── Invader
-// ───────────────────────────────────────────────────────────────────
-#define F_INVADER 1
-#define W_INVADER 8
-extern const uint8_t invader[] PROGMEM FLASH_BITMAP;
+// Invader
+extern const uint8_t invader[] FLASH_BITMAP;
+constexpr uint8_t INVADER_FRAMES = 2;
+constexpr uint8_t INVADER_WIDTH  = 10;
+constexpr size_t  INVADER_SIZE   = 20;
 
-// ─── Lines
-// ─────────────────────────────────────────────────────────────────────
-#define F_LINES   1
-#define W_LINES   8
-extern const uint8_t lines[] PROGMEM FLASH_BITMAP;
+// Lines
+extern const uint8_t lines[] FLASH_BITMAP;
+constexpr uint8_t LINES_FRAMES = 1;
+constexpr uint8_t LINES_WIDTH  = 24;
+constexpr size_t  LINES_SIZE   = 24;
 
-// ─── Mario
-// ─────────────────────────────────────────────────────────────────────
-#define F_MARIO   1
-#define W_MARIO   8
-extern const uint8_t mario[] PROGMEM FLASH_BITMAP;
+// Mario
+extern const uint8_t mario[] FLASH_BITMAP;
+constexpr uint8_t MARIO_FRAMES = 1;
+constexpr uint8_t MARIO_WIDTH  = 8;
+constexpr size_t  MARIO_SIZE   = 8;
 
-// ─── Pacman
-// ──────────────────────────────────────────────────────────────────────
-#define F_PMAN1   1
-#define W_PMAN1   8
-extern const uint8_t pacman1[] PROGMEM FLASH_BITMAP;
+// Pacman1
+extern const uint8_t pacman1[] FLASH_BITMAP;
+constexpr uint8_t PACMAN1_FRAMES = 6;
+constexpr uint8_t PACMAN1_WIDTH  = 8;
+constexpr size_t  PACMAN1_SIZE   = 48;
 
-#define F_PMAN2   1
-#define W_PMAN2   8
-extern const uint8_t pacman2[] PROGMEM FLASH_BITMAP;
+// Pacman2
+extern const uint8_t pacman2[] FLASH_BITMAP;
+constexpr uint8_t PACMAN2_FRAMES = 14;
+constexpr uint8_t PACMAN2_WIDTH  = 8;
+constexpr size_t  PACMAN2_SIZE   = 112;
 
-// ─── Rocket
-// ────────────────────────────────────────────────────────────────────
-#define F_ROCKET  1
-#define W_ROCKET  8
-extern const uint8_t rocket[] PROGMEM FLASH_BITMAP;
+// Rocket
+extern const uint8_t rocket[] FLASH_BITMAP;
+constexpr uint8_t ROCKET_FRAMES = 2;
+constexpr uint8_t ROCKET_WIDTH  = 11;
+constexpr size_t  ROCKET_SIZE   = 22;
 
-// ─── Roll
-// ──────────────────────────────────────────────────────────────────────
-#define F_ROLL1   1
-#define W_ROLL1   8
-extern const uint8_t roll1[] PROGMEM FLASH_BITMAP;
+// Roll1
+extern const uint8_t roll1[] FLASH_BITMAP;
+constexpr uint8_t ROLL1_FRAMES = 4;
+constexpr uint8_t ROLL1_WIDTH  = 8;
+constexpr size_t  ROLL1_SIZE   = 32;
 
-#define F_ROLL2   1
-#define W_ROLL2   8
-extern const uint8_t roll2[] PROGMEM FLASH_BITMAP;
+// Roll2
+extern const uint8_t roll2[] FLASH_BITMAP;
+constexpr uint8_t ROLL2_FRAMES = 4;
+constexpr uint8_t ROLL2_WIDTH  = 8;
+constexpr size_t  ROLL2_SIZE   = 32;
 
-// ─── Sailboat
-// ──────────────────────────────────────────────────────────────────
-#define F_SAILBOAT 1
-#define W_SAILBOAT 8
-extern const uint8_t sailboat[] PROGMEM FLASH_BITMAP;
+// Sailboat
+extern const uint8_t sailboat[] FLASH_BITMAP;
+constexpr uint8_t SAILBOAT_FRAMES = 1;
+constexpr uint8_t SAILBOAT_WIDTH  = 11;
+constexpr size_t  SAILBOAT_SIZE   = 11;
 
-// ─── Steamboat
-// ─────────────────────────────────────────────────────────────────
-#define F_STEAMBOAT 1
-#define W_STEAMBOAT 8
-extern const uint8_t steamboat[] PROGMEM FLASH_BITMAP;
+// Steamboat
+extern const uint8_t steamboat[] FLASH_BITMAP;
+constexpr uint8_t STEAMBOAT_FRAMES = 2;
+constexpr uint8_t STEAMBOAT_WIDTH  = 11;
+constexpr size_t  STEAMBOAT_SIZE   = 22;
 
-// ─── Walker
-// ────────────────────────────────────────────────────────────────────
-#define F_WALKER  1
-#define W_WALKER  8
-extern const uint8_t walker[] PROGMEM FLASH_BITMAP;
+// Walker
+extern const uint8_t walker[] FLASH_BITMAP;
+constexpr uint8_t WALKER_FRAMES = 5;
+constexpr uint8_t WALKER_WIDTH  = 7;
+constexpr size_t  WALKER_SIZE   = 35;
 
-// ─── Wave
-// ──────────────────────────────────────────────────────────────────────
-#define F_WAVE    1
-#define W_WAVE    8
-extern const uint8_t wave[] PROGMEM FLASH_BITMAP;
+// Wave
+extern const uint8_t wave[] FLASH_BITMAP;
+constexpr uint8_t WAVE_FRAMES = 24;
+constexpr uint8_t WAVE_WIDTH  = 8;
+constexpr size_t  WAVE_SIZE   = 192;
