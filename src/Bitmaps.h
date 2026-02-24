@@ -4,12 +4,6 @@
 #include <Arduino.h>
 #include <MD_MAX72xx.h>
 
-/*
-  - No RAM-based globals
-  - Width/Frame metadata as macros (zero RAM footprint)
-  - All data in flash
-*/
-
 #if defined(ESP8266)
   #define FLASH_BITMAP ICACHE_RODATA_ATTR
 #else
