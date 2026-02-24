@@ -1,4 +1,5 @@
 #include "owm.h"
+#include <ArduinoJson.h>
 
 String owmWeatherIcon;
 byte owmHumidity;
