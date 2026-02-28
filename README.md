@@ -99,35 +99,6 @@ This font maps standard ASCII characters directly to icons.
 ## Web UI - Settings
 ![img](https://raw.githubusercontent.com/widapro/wled-pixel-v2/master/img/wledPixel_settingsS.jpeg)
 
-
-## Hardware GPIO for external devices, hardcoded:
-
-### ESP32
-```
-// Display pinout
-#define DATA_PIN  23         // ESP32 GPIO23
-#define CS_PIN    5          // ESP32 GPIO5
-#define CLK_PIN   18         // ESP32 GPIO18
-
-// Ds18b20 pinout
-const int oneWireBus = 4;    // ESP32 GPIO04
-```
-
-### ESP8266
-```
-// Display pinout
-#define DATA_PIN  D7         // WeMos D1 mini or ESP8266 -> GPIO13
-#define CS_PIN    D6         // WeMos D1 mini or ESP8266 -> GPIO12
-#define CLK_PIN   D5         // WeMos D1 mini or ESP8266 -> GPIO14
-
-// Ds18b20 pinout
-const int oneWireBus = D4;   // WeMos D1 mini or ESP8266 -> GPIO02
-```
-
-
-## Wiring
-![Wiring diagram](img/wledPixel_Wiring.png)
-
 ## First boot:
 > - Device will boot in wifi access point mode and show "AP Mode" on the display.
 > - AP wifi name: **wledPixel-[short MAC address]**
